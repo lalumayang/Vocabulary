@@ -25,10 +25,12 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.all)
                 
                 VStack(alignment: .center, spacing: 35){
-                    Button(action:{}){
+                    NavigationLink(destination: SettingView()) {
                         Image(systemName: "gear").font(Font.system(size: 35, weight: .heavy))
                             .foregroundColor(.white)
-                            .offset(x: 120, y: -30)
+                            .padding(.leading, 240.0)
+                            .padding(.vertical, 50.0)
+                        //                            .offset(x: 120, y: -30)
                     }
                     Spacer()
                     NavigationLink(destination: CalendarView()) {
