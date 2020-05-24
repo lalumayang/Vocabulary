@@ -29,7 +29,7 @@ struct ContentView: View {
                         Image(systemName: "gear").font(Font.system(size: 35, weight: .heavy))
                             .foregroundColor(.white)
                             .padding(.leading, 240.0)
-                            .padding(.vertical, 50.0)
+                            .padding(.top, -20.0)
                         //                            .offset(x: 120, y: -30)
                     }
                     Spacer()
@@ -40,14 +40,14 @@ struct ContentView: View {
                         }
                         .foregroundColor(.white)
                         .padding(25.0)
-                            //.background(Color.white)
+//                            .background(Color.white)
                             .cornerRadius(10)
-                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 7))
+                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
                         // .opacity(0.95)
                     }
                     Spacer()
                     NavigationLink(destination: WordView()) {
-                        Text("Learn").fontWeight(.heavy)
+                        Text("Learn").fontWeight(.bold)
                             .font(.system(size: 30))
                             .cornerRadius(40)
                             .foregroundColor(.white)
@@ -56,11 +56,11 @@ struct ContentView: View {
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.white, lineWidth: 7)
+                                    .stroke(Color.white, lineWidth: 2)
                         )
                     }
                     NavigationLink(destination: ReviewView()) {
-                        Text("Review").fontWeight(.heavy)
+                        Text("Review").fontWeight(.bold)
                             .font(.system(size: 30))
                             .cornerRadius(40)
                             .foregroundColor(.white)
@@ -69,16 +69,25 @@ struct ContentView: View {
                             .padding()
                             .overlay(
                                 RoundedRectangle(cornerRadius: 5)
-                                    .stroke(Color.white, lineWidth: 7)
+                                    .stroke(Color.white, lineWidth: 2)
                         )
                     }
                     //Spacer()
-                    NavigationLink(destination: BookListView()) {
-                        Image(systemName: "book.fill").font(Font.system(size: 35, weight: .heavy))
-                            .foregroundColor(.white)
-                            .padding(.leading, 240.0)
-                            .padding(.vertical, 50.0)
-                        // .offset(x: 120, y: -30)
+                    NavigationLink(destination: BookListView()
+                        .navigationBarTitle("")
+                        .navigationBarHidden(true)
+//                        .navigationBarBackButtonHidden(true)
+//                        .navigationBarItems(leading: Button(action : {
+//                            self.mode.wrappedValue.dismiss()
+//                        }){
+//                            Image(systemName: "arrow.left")
+//                        })
+                    ) {
+                            Image(systemName: "book.fill").font(Font.system(size: 35, weight: .heavy))
+                                .foregroundColor(.white)
+                                .padding(.leading, 240.0)
+                                .padding(.vertical, 50.0)
+                            // .offset(x: 120, y: -30)
                     }
                 }
             }
@@ -93,7 +102,6 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 #endif
-
 
 
 //模糊用法
