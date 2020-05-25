@@ -17,16 +17,16 @@ struct WordViewFirst: View {
     }
     var body: some View {
         ZStack{
-            Color(red:44/255,green:42/255,blue:60/255)
+//            Color(red:44/255,green:42/255,blue:60/255)
         VStack{
             Group{
                 Spacer()
                 Button(action:{}){Image(systemName: "trash.fill")}
-                Text("try").font(.system(size: 90)).foregroundColor(Color.white)
+                Text("try").font(.system(size: 90))
                 HStack{
                     Text("[trai]")
                         .font(.system(size: 26))
-                        .foregroundColor(Color.white)
+//                        .foregroundColor(Color.white)
                     Button(action: {
                         if self.speaker.isPaused {
                             self.speaker.continueSpeaking()

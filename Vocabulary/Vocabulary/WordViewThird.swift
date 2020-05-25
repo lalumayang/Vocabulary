@@ -16,7 +16,7 @@ struct WordViewThird: View {
     }
     var body: some View {
         ZStack{
-            Color(red:44/255,green:42/255,blue:60/255)
+//            Color(red:44/255,green:42/255,blue:60/255)
             VStack{
                 HStack{
                     Text("[trai]").font(.system(size: 30))
@@ -31,7 +31,7 @@ struct WordViewThird: View {
                     }
                 }
                 .padding(.bottom, 30.0)
-                .foregroundColor(Color.white)
+//                .foregroundColor(Color.white)
                 Button(action:{}){
                     Text("(1) 嘗試")
                         .fontWeight(.bold)

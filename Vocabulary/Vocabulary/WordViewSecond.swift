@@ -16,7 +16,7 @@ struct WordViewSecond: View {
     }
     var body: some View {
         ZStack{
-            Color(red:44/255,green:42/255,blue:60/255)
+//            Color(red:44/255,green:42/255,blue:60/255)
             VStack{
                 Button(action:{}){Image(systemName: "speaker.2.fill")}
                 Group{
@@ -44,7 +44,8 @@ struct WordViewSecond: View {
                     Text("Keep trying and you'll find a job eventually.")
                     Text("不斷努力，你最終會找到工作的。")
 
-                }                        .foregroundColor(Color.white)
+                }
+//                .foregroundColor(Color.white)
                 Button(action:{}){
                     Text("好")
                 }

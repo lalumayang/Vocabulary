@@ -46,7 +46,7 @@ struct ContentView: View {
                         // .opacity(0.95)
                     }
                     Spacer()
-                    NavigationLink(destination: WordViewFirst()) {
+                    NavigationLink(destination: WordViewThird()) {
                         Text("Learn").fontWeight(.bold)
                             .font(.system(size: 30))
                             .cornerRadius(40)
