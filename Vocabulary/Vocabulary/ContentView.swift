@@ -33,7 +33,7 @@ struct ContentView: View {
                         //                            .offset(x: 120, y: -30)
                     }
                     Spacer()
-                    NavigationLink(destination: CalendarView()) {
+                    NavigationLink(destination: CalendarPage()) {
                         VStack {
                             Text("簽到").font(.custom("YuppyTC-Regular", size: 25))
                             Text(" \(currentDate, formatter: Self.dateFormat)").font(.custom("YuppyTC-Regular", size: 25))

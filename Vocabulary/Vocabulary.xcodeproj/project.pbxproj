@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		A2A5C117247A7F880072914E /* WordViewFirst.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C114247A7F880072914E /* WordViewFirst.swift */; };
 		A2A5C118247A7F880072914E /* WordViewThird.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C115247A7F880072914E /* WordViewThird.swift */; };
 		A2A5C119247A7F880072914E /* WordViewSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C116247A7F880072914E /* WordViewSecond.swift */; };
+		A2A5C1F32497AEE50072914E /* CVCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A2A5C1F22497AEE50072914E /* CVCalendar */; };
+		A2A5C1F52497B6330072914E /* CalendarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C1F42497B6330072914E /* CalendarPage.swift */; };
 		F25053A62476707800BC6DB4 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25053A52476707800BC6DB4 /* SettingView.swift */; };
 		F28C2E18246F8E85000695CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28C2E17246F8E85000695CD /* AppDelegate.swift */; };
 		F28C2E1A246F8E85000695CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28C2E19246F8E85000695CD /* SceneDelegate.swift */; };
@@ -26,6 +28,7 @@
 		A2A5C114247A7F880072914E /* WordViewFirst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewFirst.swift; sourceTree = "<group>"; };
 		A2A5C115247A7F880072914E /* WordViewThird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewThird.swift; sourceTree = "<group>"; };
 		A2A5C116247A7F880072914E /* WordViewSecond.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewSecond.swift; sourceTree = "<group>"; };
+		A2A5C1F42497B6330072914E /* CalendarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPage.swift; sourceTree = "<group>"; };
 		F25053A52476707800BC6DB4 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F28C2E14246F8E85000695CD /* Vocabulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabulary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F28C2E17246F8E85000695CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2A5C1F32497AEE50072914E /* CVCalendar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 				A2A5C115247A7F880072914E /* WordViewThird.swift */,
 				F28C2E1B246F8E85000695CD /* ContentView.swift */,
 				F25053A52476707800BC6DB4 /* SettingView.swift */,
+				A2A5C1F42497B6330072914E /* CalendarPage.swift */,
 				F2D2D06C24740C530095DACC /* CalendarView.swift */,
 				F2D2D06A24740BCF0095DACC /* ReviewView.swift */,
 				F2D2D0682473B70D0095DACC /* BookListView.swift */,
@@ -112,6 +117,9 @@
 			dependencies = (
 			);
 			name = Vocabulary;
+			packageProductDependencies = (
+				A2A5C1F22497AEE50072914E /* CVCalendar */,
+			);
 			productName = Vocabulary;
 			productReference = F28C2E14246F8E85000695CD /* Vocabulary.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +148,9 @@
 				Base,
 			);
 			mainGroup = F28C2E0B246F8E85000695CD;
+			packageReferences = (
+				A2A5C1F12497AEE50072914E /* XCRemoteSwiftPackageReference "CVCalendar" */,
+			);
 			productRefGroup = F28C2E15246F8E85000695CD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,6 +184,7 @@
 				F2D2D0692473B70D0095DACC /* BookListView.swift in Sources */,
 				F28C2E1A246F8E85000695CD /* SceneDelegate.swift in Sources */,
 				A2A5C118247A7F880072914E /* WordViewThird.swift in Sources */,
+				A2A5C1F52497B6330072914E /* CalendarPage.swift in Sources */,
 				F25053A62476707800BC6DB4 /* SettingView.swift in Sources */,
 				A2A5C117247A7F880072914E /* WordViewFirst.swift in Sources */,
 				F2D2D06B24740BCF0095DACC /* ReviewView.swift in Sources */,
@@ -368,6 +380,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A2A5C1F12497AEE50072914E /* XCRemoteSwiftPackageReference "CVCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CVCalendar/CVCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2A5C1F22497AEE50072914E /* CVCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2A5C1F12497AEE50072914E /* XCRemoteSwiftPackageReference "CVCalendar" */;
+			productName = CVCalendar;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F28C2E0C246F8E85000695CD /* Project object */;
 }
