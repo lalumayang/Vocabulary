@@ -21,7 +21,7 @@ struct SettingView: View {
     }()
     var body: some View {
         ZStack{
-            Color(red:44/255,green:42/255,blue:60/255).edgesIgnoringSafeArea(.all)
+            Color(red:219/255,green:211/255,blue:188/255).edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading, spacing: 30){
                 
                 //固定時間發送提醒通知
@@ -29,7 +29,7 @@ struct SettingView: View {
                     Toggle(isOn: $isReminder){
                         Text("開啟通知：")
                             .font(Font.system(size: 20))
-                            .foregroundColor(Color.white)
+                            .foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
                         if(isReminder){
                             Text("\(self.isNotifaction())")
                         }
@@ -38,27 +38,27 @@ struct SettingView: View {
                 
                 HStack{
                     if(isReminder){
-                        Text("提醒時間：").font(Font.system(size: 20)).foregroundColor(Color.white)
+                        Text("提醒時間：").font(Font.system(size: 20)).foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
                         Spacer()
                         DatePicker("提醒時間：", selection: $dateTime, displayedComponents: .hourAndMinute)
                             .frame(width: 250, height: 45)
-                            .colorInvert()
                             .clipped()
+                            .accentColor(Color(red:141/255,green:91/255,blue:70/255))
                     }
                 }
                 //                Text("\(dateFormatter.string(from: Date()))").foregroundColor(Color.white)
                 //                Text(dateFormatter.string(from: dateTime)).foregroundColor(Color.white)
                 //                Text("\(dateTime)")
                 HStack{
-                    Text("每組學習單字量：").font(Font.system(size: 20)).foregroundColor(Color.white)
+                    Text("每組學習單字量：").font(Font.system(size: 20)).foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
                     Picker(selection: $selectedIndex, label: Text("每組學習單字量：")) {
                         ForEach(0..<words.count) { (index) in
                             Text(self.words[index])
                         }
                     }.labelsHidden()
                         .frame(width: 150, height: 45)
-                        .colorInvert()
                         .clipped()
+                        .accentColor(Color(red:141/255,green:91/255,blue:70/255))
                 }
                 //                Text(words[selectedIndex]).foregroundColor(Color.white)
             }

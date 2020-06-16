@@ -76,18 +76,11 @@ struct ContentView: View {
                     NavigationLink(destination: BookListView()
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
-//                        .navigationBarBackButtonHidden(true)
-//                        .navigationBarItems(leading: Button(action : {
-//                            self.mode.wrappedValue.dismiss()
-//                        }){
-//                            Image(systemName: "arrow.left")
-//                        })
                     ) {
                             Image(systemName: "book.fill").font(Font.system(size: 35, weight: .heavy))
                                 .foregroundColor(.white)
                                 .padding(.leading, 240.0)
                                 .padding(.vertical, 50.0)
-                            // .offset(x: 120, y: -30)
                     }
                 }
             }

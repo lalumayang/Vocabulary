@@ -15,24 +15,36 @@ struct Book {
 }
 
 struct BookListView: View {
-    var books = [
+    @Environment(\.presentationMode) var presentation
+    @State var books = [
         Book(bookTitle: "TOEFL", totalWords: 500, wordList: ["abandon", "abbreviation","ability","able","above","abuse","absent","absolute","abuse","accept","access","accident","accommodate","accommodation","accompany","accomplish","account","accumulate","accurate","achieve"]),
         Book(bookTitle: "TOEIC", totalWords: 200, wordList: ["broad", "blue"]),
         Book(bookTitle: "GRE", totalWords: 100, wordList: ["code", "cry"])
     ]
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+        UITableViewCell.appearance().backgroundColor = .clear
+        //        UITableView.appearance().separatorStyle = .none//不要row分隔线
+        UINavigationBar.appearance().backgroundColor = .clear
+        UINavigationBar.appearance().tintColor = UIColor(red:141/255,green:91/255,blue:70/255,alpha: 255/255)
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor(red:141/255,green:91/255,blue:70/255,alpha: 255/255)]
+    }
+    
     var body: some View {
-        ZStack{
-            //            Color(red: 48/255, green: 62/255, blue: 67/255).edgesIgnoringSafeArea(.all)
-            NavigationView {
+        NavigationView {
+            ZStack{
                 List(books.indices) {
                     (item) in NavigationLink(destination:BookDetail(book: self.books[item])){
                         BookRow(book: self.books[item])
                     }
                     .navigationBarTitle("書庫")
-                    //                    .navigationViewStyle(StackNavigationViewStyle())
-                }
-            }
-            .padding()
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarItems(leading: Button("Back"){
+                        self.presentation.wrappedValue.dismiss()
+                    })
+                }.background(Color(red:219/255,green:211/255,blue:188/255).edgesIgnoringSafeArea(.all))
+            }.padding()
+                .background(Color(red:219/255,green:211/255,blue:188/255).edgesIgnoringSafeArea(.all))
         }
     }
 }
@@ -44,7 +56,7 @@ struct BookListView_Previews: PreviewProvider {
 }
 
 struct BookRow: View {
-    let book: Book
+    var book: Book
     @State var isMarked:Bool = false
     @State var isDownload: Bool = false
     var body: some View {
@@ -53,22 +65,24 @@ struct BookRow: View {
                 .onTapGesture {
                     self.isMarked.toggle()
                     print("isMarked:\(self.isMarked)")
-            }
+            }.foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
             Image(book.bookTitle)
                 .resizable()
                 .scaledToFill()
                 .frame(width: 80, height: 80)
                 .clipped()
             VStack(alignment: .leading) {
-                Text(book.bookTitle)
-                Text("單字量：\(String(book.totalWords))")
+                Text(book.bookTitle).foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
+                    .fontWeight(.bold)
+                Text("單字量：\(String(book.totalWords))").foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
+                    .fontWeight(.bold)
             }
             Spacer()
             Image(systemName:self.isDownload ? "" : "icloud.and.arrow.down").onTapGesture {
                 self.isDownload.toggle()
                 print("isDownload:\(self.isDownload)")
                 //TODO:download the book vocabulary in database
-            }
+            }.foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
         }
     }
 }
@@ -76,31 +90,30 @@ struct BookRow: View {
 struct BookDetail: View {
     var book: Book
     var body: some View {
-        //        ZStack {
-        //            Color(red: 48/255, green: 62/255, blue: 67/255).edgesIgnoringSafeArea(.all)
-        VStack{
-            //                List(book.wordList.indices) {word in
-            //                    Text(self.book.wordList[word])
-            //                    .font(.system(size: 20))
-            //                }
-            
+        ZStack{
+        
             List {
                 ForEach(book.wordList, id: \.self) {
-                    Text("\($0)").font(.system(size: 22))
+                    Text("\($0)")
+                        .font(.system(size: 22))
+                        .foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
+                        .listRowBackground(Color(red:219/255,green:211/255,blue:188/255))
                 }
-                .onDelete(perform: deleteItem)
+                    .onDelete(perform: deleteItem)
             }
-        }
-            //        .navigationBarItems(leading: EditButton())
-            .navigationBarTitle(book.bookTitle)
+        }.padding(.horizontal, 25.0)
+            //                    .navigationBarItems(leading: EditButton())
+            .navigationBarTitle(Text("\(book.bookTitle)"),displayMode: .inline)//,displayMode: .inline
+            .background(Color(red:219/255,green:211/255,blue:188/255).edgesIgnoringSafeArea(.all))
     }
-    
-    
-    private func deleteItem(at indexSet: IndexSet) {
-        //TODO:deleteItem
+    func deleteItem(at offsets: IndexSet) {
+        print(book.wordList)
+        print(offsets)
+//        TODO:deleteItem
+//        book.wordList.remove(atOffsets: offsets)
+//            print("delete:\(offsets)")
         
-        print("delete:\(indexSet)")
-        //        book.wordList.remove(atOffsets: IndexSet)
     }
 }
+
 
