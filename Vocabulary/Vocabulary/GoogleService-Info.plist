@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>427241368673-bp8r9jteqd347nk9gbbek5m78s6cjgai.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.427241368673-bp8r9jteqd347nk9gbbek5m78s6cjgai</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBaQtiAcdG8p7_WskemdvjQdGG92pVuGFg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>427241368673</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.laluma.Vocabulary</string>
+	<key>PROJECT_ID</key>
+	<string>vocabulary-50f3c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>vocabulary-50f3c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:427241368673:ios:c972a4e1826cd8e9968e20</string>
+	<key>DATABASE_URL</key>
+	<string>https://vocabulary-50f3c.firebaseio.com</string>
+</dict>
+</plist>
