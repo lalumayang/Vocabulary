@@ -6,5 +6,7 @@ target 'Vocabulary' do
   use_frameworks!
 
   # Pods for Vocabulary
+  pod 'Firebase/Firestore'
+  pod ‘Firebase/Database’
 
 end

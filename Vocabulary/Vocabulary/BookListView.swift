@@ -7,6 +7,8 @@
 //
 
 import SwiftUI
+import Firebase
+import FirebaseDatabase
 
 struct Book {
     let bookTitle: String
@@ -15,6 +17,14 @@ struct Book {
 }
 
 struct BookListView: View {
+    //    func aaa()->String{
+    //        var ref: DatabaseReference!
+    //        ref = Database.database().reference()
+    //        return "Ans"
+    //    }
+    
+    var ref: DatabaseReference = Database.database().reference()
+    
     @Environment(\.presentationMode) var presentation
     @State var books = [
         Book(bookTitle: "TOEFL", totalWords: 500, wordList: ["abandon", "abbreviation","ability","able","above","abuse","absent","absolute","abuse","accept","access","accident","accommodate","accommodation","accompany","accomplish","account","accumulate","accurate","achieve"]),
@@ -32,7 +42,40 @@ struct BookListView: View {
     
     var body: some View {
         NavigationView {
-            ZStack{
+            VStack{
+                //                Text(aaa())
+                //                Button(action: {
+                //                    self.ref.child("vocabulary-50f3c").child("items")
+                //                        .observeSingleEvent(of: .value, with: { (snapshot) in
+                //
+                //                            let value = snapshot.value as? NSDictionary
+                //
+                //                            var hp = 0
+                //                            let number : NSNumber? = value?["totalWords"] as? NSNumber
+                //                            if let integerValue = number?.intValue {
+                //                                hp = integerValue
+                //                            }
+                //
+                //                            print("hp:\(hp)")
+                //                        }) { (error) in
+                //                            print(error.localizedDescription)
+                //                    }
+                //                self.ref.child("vocabulary-50f3c").child("items").observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                //                  let value = snapshot.value as? NSDictionary
+                //                  let username = value?["bookTitle"] as? String ?? ""
+                //                  let user = User(username: username)
+                //                    print("username:\(username)")
+                //
+                // ...
+                //                  }) { (error) in
+                //                    print(error.localizedDescription)
+                //                }
+                //                }) {
+                //                    Text("print")
+                //                }
+                
+                
                 List(books.indices) {
                     (item) in NavigationLink(destination:BookDetail(book: self.books[item])){
                         BookRow(book: self.books[item])
@@ -91,7 +134,7 @@ struct BookDetail: View {
     var book: Book
     var body: some View {
         ZStack{
-        
+            
             List {
                 ForEach(book.wordList, id: \.self) {
                     Text("\($0)")
@@ -99,7 +142,7 @@ struct BookDetail: View {
                         .foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
                         .listRowBackground(Color(red:219/255,green:211/255,blue:188/255))
                 }
-                    .onDelete(perform: deleteItem)
+                .onDelete(perform: deleteItem)
             }
         }.padding(.horizontal, 25.0)
             //                    .navigationBarItems(leading: EditButton())
@@ -109,9 +152,9 @@ struct BookDetail: View {
     func deleteItem(at offsets: IndexSet) {
         print(book.wordList)
         print(offsets)
-//        TODO:deleteItem
-//        book.wordList.remove(atOffsets: offsets)
-//            print("delete:\(offsets)")
+        //        TODO:deleteItem
+        //        book.wordList.remove(atOffsets: offsets)
+        //            print("delete:\(offsets)")
         
     }
 }

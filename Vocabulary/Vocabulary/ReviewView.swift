@@ -17,15 +17,14 @@ struct ReviewView: View {
     @State private var word = ""
     var body: some View {
         VStack{
+            TextField("input", text: $word)
+            .font(.system(size: 30))
+            .multilineTextAlignment(TextAlignment.center)
+//            .padding(.vertical, 50.0)
             VStack{
                 Text("(v)試圖;考驗").font(.system(size: 24))
                 Text("(n)設法;努力").font(.system(size: 24))
             }.padding(.top, 130.0)
-            
-            TextField("input", text: $word)
-                .font(.system(size: 30))
-                .multilineTextAlignment(TextAlignment.center)
-                .padding(.vertical, 50.0)
             Spacer()
             HStack{
                 Spacer()
