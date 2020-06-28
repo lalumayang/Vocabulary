@@ -19,6 +19,7 @@ struct ReviewView: View {
     var utterance: AVSpeechUtterance {
         AVSpeechUtterance(string: "\(words[index].word)")
     }
+    @State var isActive = false
     @State private var finish = 0
     @State private var index = 0
     @State private var input = ""
@@ -27,81 +28,71 @@ struct ReviewView: View {
         Word(word: "Toeic", mean: "多益"),
         Word(word: "Play", mean: "玩")
     ]
-    //    @State var allWords = words.copy()
+    let finishView = FinishView()
     var body: some View {
-//        NavigationView {
-            ZStack{
-                Color(red:219/255,green:211/255,blue:188/255).edgesIgnoringSafeArea(.all)
+        ZStack{
+            Color(red:219/255,green:211/255,blue:188/255).edgesIgnoringSafeArea(.all)
+            VStack{
+                TextField("Input", text: $input)
+                    .font(.system(size: 30))
+                    .multilineTextAlignment(TextAlignment.center)
+                    .foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
+                    .padding(.all)
                 VStack{
-                    TextField("Input", text: $input)
-                        .font(.system(size: 30))
-                        .multilineTextAlignment(TextAlignment.center)
-                        .foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
-                        .padding(.all)
-                    VStack{
+                    if(self.words.count>0){
                         Text(words[index].mean).font(.system(size: 24))
-                            .foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
-                    }.padding(.top, 130.0)
-                    
+                            .foregroundColor(Color(red:141/255,green:91/255,blue:70/255))}
+                }.padding(.top, 130.0)
+                
+                Spacer()
+                HStack{
                     Spacer()
-                    HStack{
-                        Spacer()
-                        Button(action: {
-                            self.input = ""
-                        }) {
-                            Image(systemName: "multiply.circle").font(.system(size: 30))
-                        }.foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
-                        Spacer()
-                        Button(action: {
-                            if self.speaker.isPaused {
-                                self.speaker.continueSpeaking()
-                            } else {
-                                self.speaker.speak(self.utterance)
-                            }
-                        }) {
-                            Image(systemName: "lightbulb")
-                                .font(.system(size: 30))
-                        }.colorInvert()
-                        Spacer()
-                        Button(action: {
-                            if self.index < self.words.count-1{
+                    Button(action: {
+                        self.input = ""
+                    }) {
+                        Image(systemName: "multiply.circle").font(.system(size: 30))
+                    }.foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
+                    Spacer()
+                    Button(action: {
+                        if self.speaker.isPaused {
+                            self.speaker.continueSpeaking()
+                        } else {
+                            self.speaker.speak(self.utterance)
+                        }
+                    }) {
+                        Image(systemName: "lightbulb")
+                            .font(.system(size: 30))
+                    }.colorInvert()
+                    Spacer()
+                    Button(action: {
+                        if self.index < self.words.count{
+                            if(self.input.lowercased() as AnyObject === self.words[self.index].word.lowercased() as AnyObject){
+                                print("good")
+                                self.words.remove(at: self.index)
+                                print(self.words)
                                 print(self.words.count)
-                                if(self.input.lowercased() as AnyObject === self.words[self.index].word.lowercased() as AnyObject){
-                                    print("good")
-                                    //                                self.words.removeFirst()
-                                    self.words.remove(at: self.index)
-                                    print(self.words)
+                                if(self.words.count == 0){
+                                    self.isActive=true
                                 }
-                                else{
-                                    print("bad")
-                                    self.index = self.index + 1
-                                    print(self.words)
-                                }
-                                //                            self.index = self.index + 1
-                                //                            self.index = 0
-                                self.input = ""
                             }
                             else{
-                                self.finish = 1
-                                //
-                                print("else")
-                                self.input = ""
-                                self.words.remove(at: self.index)
-                                //                            self.words.remove(at: self.index)
-                                self.index = 0
+                                print("bad")
+                                self.index = self.index + 1
+                                print(self.words)
+                                print(self.words.count)
                             }
-                            self.index = 0
-                        }) {
-                            Image(systemName: "chevron.down.circle").font(.system(size: 30))
-                        }.foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
-                        Spacer()
-                        if(self.finish == 1){
-                            NavigationLink("", destination: FinishView())
+                            self.input = ""
                         }
-                    }.padding(.bottom, 80.0)
-                }
+                        self.index = 0
+                    }) {
+                        Image(systemName: "chevron.down.circle").font(.system(size: 30))
+                    }.foregroundColor(Color(red:141/255,green:91/255,blue:70/255))
+                    Spacer()
+                }.padding(.bottom, 80.0)
+                
+                NavigationLink(destination: FinishView(), isActive: $isActive){Text("")}
             }
-//        }
+        }
     }
 }
 
