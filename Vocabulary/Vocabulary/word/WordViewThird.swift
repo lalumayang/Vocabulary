@@ -15,7 +15,6 @@ struct WordViewThird: View {
         AVSpeechUtterance(string: word.word)
     }
     var word: Word
-    
     init(word: Word) {
         self.word = word
         if self.speaker.isPaused {
@@ -23,7 +22,6 @@ struct WordViewThird: View {
         } else {
             self.speaker.speak(self.utterance)
         }
-        print("third")
     }
     
     var body: some View {
@@ -32,7 +30,7 @@ struct WordViewThird: View {
             VStack{
                 Spacer()
                 HStack{
-                    Text("[trai]").font(.system(size: 30))
+                    Text("/ trai /").font(.system(size: 30))
                     Button(action: {
                         if self.speaker.isPaused {
                             self.speaker.continueSpeaking()
@@ -99,6 +97,6 @@ struct WordViewThird: View {
 
 struct WordViewThird_Previews: PreviewProvider {
     static var previews: some View {
-        WordViewThird(word: Word(counts:3,word: "apple",mean: "蘋果"))
+        WordViewThird(word: Word(counts:3,word: "apple",mean: "蘋果",phonetic:""))
     }
 }

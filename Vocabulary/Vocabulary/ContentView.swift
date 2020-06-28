@@ -32,7 +32,7 @@ struct ContentView: View {
                             .padding(.top, -20.0)
                     }
                     Spacer()
-//                    NavigationLink(destination: FinishView()) {Text("sfs")}
+                    //                    NavigationLink(destination: FinishView()) {Text("sfs")}
                     NavigationLink(destination: CalendarPage()) {
                         VStack {
                             Text("簽到").font(.custom("YuppyTC-Regular", size: 25))
@@ -40,8 +40,8 @@ struct ContentView: View {
                         }
                         .foregroundColor(.white)
                         .padding(25.0)
-                            .cornerRadius(10)
-                            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
+                        .cornerRadius(10)
+                        .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
                     }
                     Spacer()
                     NavigationLink(destination: WordView()) {
@@ -75,16 +75,16 @@ struct ContentView: View {
                         .navigationBarTitle("")
                         .navigationBarHidden(true)
                     ) {
-                            Image(systemName: "book.fill").font(Font.system(size: 35, weight: .heavy))
-                                .foregroundColor(.white)
-                                .padding(.leading, 240.0)
-                                .padding(.vertical, 50.0)
+                        Image(systemName: "book.fill").font(Font.system(size: 35, weight: .heavy))
+                            .foregroundColor(.white)
+                            .padding(.leading, 240.0)
+                            .padding(.vertical, 50.0)
                     }
                 }
             }
         }.navigationBarTitle("")
-        .navigationBarBackButtonHidden(true)
-        .navigationBarHidden(true)
+            .navigationBarBackButtonHidden(true)
+            .navigationBarHidden(true)
     }
 }
 #if DEBUG

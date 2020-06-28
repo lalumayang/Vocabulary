@@ -20,7 +20,6 @@ struct WordViewFirst: View {
     
     init(word: Word) {
         self.word = word
-        print(self.word)
     }
     var body: some View {
         
@@ -91,6 +90,6 @@ struct WordViewFirst: View {
 
 struct WordViewFirst_Previews: PreviewProvider {
     static var previews: some View {
-        WordViewFirst(word: Word(counts:1,word: "apple",mean: "蘋果"))
+        WordViewFirst(word: Word(counts:1,word: "apple",mean: "蘋果",phonetic:""))
     }
 }
