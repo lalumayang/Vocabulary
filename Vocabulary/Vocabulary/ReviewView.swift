@@ -9,11 +9,6 @@
 import SwiftUI
 import AVFoundation
 
-struct Word {
-    let word: String
-    let mean: String
-}
-
 struct ReviewView: View {
     let speaker = AVSpeechSynthesizer()
     var utterance: AVSpeechUtterance {
@@ -24,9 +19,9 @@ struct ReviewView: View {
     @State private var index = 0
     @State private var input = ""
     @State var words = [
-        Word(word: "Try", mean: "試圖;考驗"),
-        Word(word: "Toeic", mean: "多益"),
-        Word(word: "Play", mean: "玩")
+        Word(counts:1,word: "Try", mean: "試圖;考驗"),
+        Word(counts:1,word: "Toeic", mean: "多益"),
+        Word(counts:1,word: "Play", mean: "玩")
     ]
     let finishView = FinishView()
     var body: some View {

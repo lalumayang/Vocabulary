@@ -12,15 +12,21 @@ import AVFoundation
 struct WordViewSecond: View {
     let speaker = AVSpeechSynthesizer()
     var utterance: AVSpeechUtterance {
-        AVSpeechUtterance(string: "to attempt to do something")
+        AVSpeechUtterance(string: word.word)
     }
+    var word: Word
+    
+    init(word: Word) {
+        self.word = word
+        print("second")
+    }
+    
     var body: some View {
         ZStack{
-//            Color(red:44/255,green:42/255,blue:60/255)
+            Color(red:219/255,green:211/255,blue:188/255)
             VStack{
-                Button(action:{}){Image(systemName: "speaker.2.fill")}
                 Group{
-                    Text("try").font(.system(size: 60))
+                    Text(word.word).font(.system(size: 60))
                     HStack{
                         Text("[trai]")
                         Button(action: {
@@ -46,10 +52,17 @@ struct WordViewSecond: View {
 
                 }
 //                .foregroundColor(Color.white)
-                Button(action:{}){
+                NavigationLink(destination: WordView()) {
                     Text("好")
-                }
-                .padding(.top, 80.0)
+                        .font(.system(size: 22))
+                        .foregroundColor(Color.white)
+                        .frame(width: 180, height: 50)
+                        .background(Color(red:141/255,green:91/255,blue:70/255))
+                        .cornerRadius(40)
+                        .padding(5)
+                }.navigationBarTitle("")
+//                    .navigationBarHidden(true)
+                    .padding(.top, 50.0)
 
             }
         }
@@ -59,6 +72,6 @@ struct WordViewSecond: View {
 
 struct WordViewSecond_Previews: PreviewProvider {
     static var previews: some View {
-        WordViewSecond()
+        WordViewSecond(word: Word(counts:2,word: "apple",mean: "蘋果"))
     }
 }

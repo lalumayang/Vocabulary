@@ -12,6 +12,8 @@
 		A2A5C119247A7F880072914E /* WordViewSecond.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C116247A7F880072914E /* WordViewSecond.swift */; };
 		A2A5C1F32497AEE50072914E /* CVCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = A2A5C1F22497AEE50072914E /* CVCalendar */; };
 		A2A5C1F52497B6330072914E /* CalendarPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C1F42497B6330072914E /* CalendarPage.swift */; };
+		A2A5C20C24A901C50072914E /* WordVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C20B24A901C50072914E /* WordVIew.swift */; };
+		A2A5C20E24A901FF0072914E /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A5C20D24A901FF0072914E /* Word.swift */; };
 		F25053A62476707800BC6DB4 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F25053A52476707800BC6DB4 /* SettingView.swift */; };
 		F252914824A8D0870022A99B /* FinishView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F252914724A8D0870022A99B /* FinishView.swift */; };
 		F28C2E18246F8E85000695CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28C2E17246F8E85000695CD /* AppDelegate.swift */; };
@@ -30,6 +32,8 @@
 		A2A5C115247A7F880072914E /* WordViewThird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewThird.swift; sourceTree = "<group>"; };
 		A2A5C116247A7F880072914E /* WordViewSecond.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewSecond.swift; sourceTree = "<group>"; };
 		A2A5C1F42497B6330072914E /* CalendarPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarPage.swift; sourceTree = "<group>"; };
+		A2A5C20B24A901C50072914E /* WordVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordVIew.swift; sourceTree = "<group>"; };
+		A2A5C20D24A901FF0072914E /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		F25053A52476707800BC6DB4 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		F252914724A8D0870022A99B /* FinishView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishView.swift; sourceTree = "<group>"; };
 		F28C2E14246F8E85000695CD /* Vocabulary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Vocabulary.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				F252914724A8D0870022A99B /* FinishView.swift */,
+				A2A5C20B24A901C50072914E /* WordVIew.swift */,
+				A2A5C20D24A901FF0072914E /* Word.swift */,
 				F28C2E17246F8E85000695CD /* AppDelegate.swift */,
 				F28C2E19246F8E85000695CD /* SceneDelegate.swift */,
 				A2A5C114247A7F880072914E /* WordViewFirst.swift */,
@@ -182,6 +188,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F28C2E18246F8E85000695CD /* AppDelegate.swift in Sources */,
+				A2A5C20E24A901FF0072914E /* Word.swift in Sources */,
 				F2D2D06D24740C530095DACC /* CalendarView.swift in Sources */,
 				A2A5C119247A7F880072914E /* WordViewSecond.swift in Sources */,
 				F2D2D0692473B70D0095DACC /* BookListView.swift in Sources */,
@@ -193,6 +200,7 @@
 				F2D2D06B24740BCF0095DACC /* ReviewView.swift in Sources */,
 				F28C2E1C246F8E85000695CD /* ContentView.swift in Sources */,
 				F252914824A8D0870022A99B /* FinishView.swift in Sources */,
+				A2A5C20C24A901C50072914E /* WordVIew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

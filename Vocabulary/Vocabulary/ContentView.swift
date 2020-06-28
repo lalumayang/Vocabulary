@@ -44,7 +44,7 @@ struct ContentView: View {
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
                     }
                     Spacer()
-                    NavigationLink(destination: WordViewThird()) {
+                    NavigationLink(destination: WordView()) {
                         Text("Learn").fontWeight(.bold)
                             .font(.system(size: 30))
                             .cornerRadius(40)

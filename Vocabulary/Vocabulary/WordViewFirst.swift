@@ -11,22 +11,30 @@ import AVFoundation
 
 
 struct WordViewFirst: View {
+    var word: Word
     let speaker = AVSpeechSynthesizer()
     var utterance: AVSpeechUtterance {
-        AVSpeechUtterance(string: "try")
+        AVSpeechUtterance(string: word.word)
+    }
+    @State private var showSecondView = false
+    
+    init(word: Word) {
+        self.word = word
+        print(self.word)
     }
     var body: some View {
+
         ZStack{
-//            Color(red:44/255,green:42/255,blue:60/255)
+            Color(red:219/255,green:211/255,blue:188/255)
         VStack{
             Group{
                 Spacer()
-                Button(action:{}){Image(systemName: "trash.fill")}
-                Text("try").font(.system(size: 90))
+//                Button(action:{}){Image(systemName: "trash.fill")}
+                Text(word.word).font(.system(size: 90)).foregroundColor(Color.white)
                 HStack{
                     Text("[trai]")
                         .font(.system(size: 26))
-//                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.white)
                     Button(action: {
                         if self.speaker.isPaused {
                             self.speaker.continueSpeaking()
@@ -40,30 +48,33 @@ struct WordViewFirst: View {
                 Spacer()
                 HStack{
                     Spacer()
-                    Button(action:{}){
+                    Button(action:{self.showSecondView = true}){
                         Text("認識")
                             .fontWeight(.bold)
                             .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
-                            .background(Color(red:235/255,green:117/255,blue:0))
+                            .background(Color(red:141/255,green:91/255,blue:70/255))
                             .cornerRadius(5)
                             .font(.system(size: 20))
                             .foregroundColor(.white)
                     }.padding(.trailing, 15)
-                    Button(action:{}){
-                        Text("模糊")
-                            .fontWeight(.bold)
-                            .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
-                            .background(Color(red:235/255,green:117/255,blue:0))
-                            .cornerRadius(5)
-                            .font(.system(size: 20))
-                            .foregroundColor(.white)
-                    }
+//                        .sheet(isPresented: $showSecondView) {
+//                        WordView()
+//                    }
+//                    Button(action:{}){
+//                        Text("模糊")
+//                            .fontWeight(.bold)
+//                            .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
+//                            .background(Color(red:141/255,green:91/255,blue:70/255))
+//                            .cornerRadius(5)
+//                            .font(.system(size: 20))
+//                            .foregroundColor(.white)
+//                    }
 
                     Button(action:{}){
                         Text("不認識")
                             .fontWeight(.bold)
                             .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
-                            .background(Color(red:235/255,green:117/255,blue:0))
+                            .background(Color(red:141/255,green:91/255,blue:70/255))
                             .cornerRadius(5)
                             .font(.system(size: 20))
                             .foregroundColor(.white)
@@ -80,6 +91,6 @@ struct WordViewFirst: View {
 
 struct WordViewFirst_Previews: PreviewProvider {
     static var previews: some View {
-        WordViewFirst()
+        WordViewFirst(word: Word(counts:1,word: "apple",mean: "蘋果"))
     }
 }
