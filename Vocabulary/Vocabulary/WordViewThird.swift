@@ -30,6 +30,7 @@ struct WordViewThird: View {
         ZStack{
             Color(red:219/255,green:211/255,blue:188/255)
             VStack{
+                Spacer()
                 HStack{
                     Text("[trai]").font(.system(size: 30))
                     Button(action: {
@@ -81,6 +82,14 @@ struct WordViewThird: View {
                         .foregroundColor(.white)
                 }.padding(.bottom, 15.0)
                 
+                
+                NavigationLink(destination: ContentView()) {
+                    Image(systemName: "house")
+                        .foregroundColor(Color.white)
+                }.navigationBarTitle("")
+                    .navigationBarHidden(true)
+                    .padding(.top, 50.0)
+                Spacer()
                 
             }
         }

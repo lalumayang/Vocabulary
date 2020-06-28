@@ -25,10 +25,11 @@ struct WordViewSecond: View {
         ZStack{
             Color(red:219/255,green:211/255,blue:188/255)
             VStack{
+                Spacer()
                 Group{
                     Text(word.word).font(.system(size: 60))
                     HStack{
-                        Text("[trai]")
+                        Text("/ trai /")
                         Button(action: {
                             if self.speaker.isPaused {
                                 self.speaker.continueSpeaking()
@@ -63,6 +64,15 @@ struct WordViewSecond: View {
                 }.navigationBarTitle("")
 //                    .navigationBarHidden(true)
                     .padding(.top, 50.0)
+                
+                
+                NavigationLink(destination: ContentView()) {
+                    Image(systemName: "house")
+                    .foregroundColor(Color.white)
+                }.navigationBarTitle("")
+                    .navigationBarHidden(true)
+                    .padding(.top, 50.0)
+                Spacer()
 
             }
         }
