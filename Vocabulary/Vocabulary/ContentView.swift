@@ -30,9 +30,9 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .padding(.leading, 240.0)
                             .padding(.top, -20.0)
-                        //                            .offset(x: 120, y: -30)
                     }
                     Spacer()
+//                    NavigationLink(destination: FinishView()) {Text("sfs")}
                     NavigationLink(destination: CalendarPage()) {
                         VStack {
                             Text("簽到").font(.custom("YuppyTC-Regular", size: 25))
@@ -40,10 +40,8 @@ struct ContentView: View {
                         }
                         .foregroundColor(.white)
                         .padding(25.0)
-//                            .background(Color.white)
                             .cornerRadius(10)
                             .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.white, lineWidth: 2))
-                        // .opacity(0.95)
                     }
                     Spacer()
                     NavigationLink(destination: WordViewThird()) {
@@ -84,7 +82,9 @@ struct ContentView: View {
                     }
                 }
             }
-        }
+        }.navigationBarTitle("")
+        .navigationBarBackButtonHidden(true)
+        .navigationBarHidden(true)
     }
 }
 #if DEBUG
