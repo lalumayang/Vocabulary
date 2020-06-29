@@ -31,7 +31,7 @@ struct WordViewFirst: View {
                     //                Button(action:{}){Image(systemName: "trash.fill")}
                     Text(word.word).font(.system(size: 90)).foregroundColor(Color.white)
                     HStack{
-                        Text("/ trai /")
+                        Text(word.phonetic)
                             .font(.system(size: 26))
                             .foregroundColor(Color.white)
                         Button(action: {
@@ -90,6 +90,6 @@ struct WordViewFirst: View {
 
 struct WordViewFirst_Previews: PreviewProvider {
     static var previews: some View {
-        WordViewFirst(word: Word(counts:1,word: "apple",mean: "蘋果",phonetic:""))
+        WordViewFirst(word: Word(counts:1,word: "apple",mean: "蘋果",phonetic:"",example:"",define:"",chineseDef:""))
     }
 }

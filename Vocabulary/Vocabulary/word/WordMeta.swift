@@ -9,6 +9,7 @@
 import Foundation
 
 struct WordMeta: Codable {
-    let word: String
-    let phonetic: String
+    let id: String
+//    let word: String
+//    let phonetic: String
 }

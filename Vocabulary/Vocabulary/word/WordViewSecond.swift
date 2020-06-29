@@ -28,7 +28,7 @@ struct WordViewSecond: View {
                 Group{
                     Text(word.word).font(.system(size: 60))
                     HStack{
-                        Text("/ trai /")
+                        Text("/ bәˋnænә /")
                         Button(action: {
                             if self.speaker.isPaused {
                                 self.speaker.continueSpeaking()
@@ -41,14 +41,13 @@ struct WordViewSecond: View {
                     }
                     .padding(.bottom, 10.0)
                     
-                    Text("(v)試圖;考驗")
-                    Text("(n)設法;努力")
+                    Text("(n)香蕉")
                         .padding(.bottom, 10.0)
-                    Text("to attempt to do something")
+                    Text("The tropical and subtropical palmlike plant that bears bananas, having very large leaves but lacking a woody trunk.")
                         .padding(.bottom, 10.0)
                     Text("Example:")
-                    Text("Keep trying and you'll find a job eventually.")
-                    Text("不斷努力，你最終會找到工作的。")
+                    Text("The banana bears two crops every year .")
+                    Text("香蕉一年收成兩噸。")
 
                 }
 //                .foregroundColor(Color.white)
@@ -81,6 +80,6 @@ struct WordViewSecond: View {
 
 struct WordViewSecond_Previews: PreviewProvider {
     static var previews: some View {
-        WordViewSecond(word: Word(counts:2,word: "apple",mean: "蘋果",phonetic:""))
+        WordViewSecond(word: Word(counts:2,word: "apple",mean: "蘋果",phonetic:"",example:"",define:"",chineseDef:""))
     }
 }

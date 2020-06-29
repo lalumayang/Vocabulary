@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct WordView: View {
-    @State var words = [Word(counts: 1,word: "apple", mean: "蘋果",phonetic:""),Word(counts: 2,word: "banana", mean: "香蕉",phonetic:""),Word(counts: 3,word: "cat", mean: "貓咪",phonetic:"")]
+    @State var words = [Word(counts: 1,word: "banana", mean: "(n)香蕉",phonetic:"/ bәˋnænә /",example: "The banana bears two crops every year .",define: "The tropical and subtropical palmlike plant that bears bananas, having very large leaves but lacking a woody trunk.",chineseDef: "香蕉一年收成兩噸。"),Word(counts: 2,word: "banana", mean: "(n)香蕉",phonetic:"/ bәˋnænә /",example: "The banana bears two crops every year .",define: "The tropical and subtropical palmlike plant that bears bananas, having very large leaves but lacking a woody trunk.",chineseDef: "香蕉一年收成兩噸。"),Word(counts: 3,word: "banana", mean: "(n)香蕉",phonetic:"/ bәˋnænә /",example: "The banana bears two crops every year .",define: "The tropical and subtropical palmlike plant that bears bananas, having very large leaves but lacking a woody trunk.",chineseDef: "香蕉一年收成兩噸。"),Word(counts: 4,word: "banana", mean: "(n)香蕉",phonetic:"/ bәˋnænә /",example: "The banana bears two crops every year .",define: "The tropical and subtropical palmlike plant that bears bananas, having very large leaves but lacking a woody trunk.",chineseDef: "香蕉一年收成兩噸。")]
     @State var wordMeta = [WordMeta]()
     func getWordDetail(word: Word) {
         if let url = URL(string: "https://api.dictionaryapi.dev/api/v1/entries/en/\(word.word)") {
@@ -32,7 +32,7 @@ struct WordView: View {
 
     var body: some View {
         var word = words.randomElement()
-        getWordDetail(word: word ?? Word(counts: 0,word: "", mean: "",phonetic: ""))
+        getWordDetail(word: word ?? Word(counts: 0,word: "", mean: "",phonetic: "",example:"",define:"",chineseDef:""))
         return ZStack{
             if (word?.counts == 1){
                 WordViewFirst(word: word!)
@@ -42,6 +42,9 @@ struct WordView: View {
             }
             else if (word?.counts == 3){
                 WordViewThird(word: word!)
+            }
+            else if(word?.counts == 4){
+                WordViewForth(word: word!)
             }
             
         }

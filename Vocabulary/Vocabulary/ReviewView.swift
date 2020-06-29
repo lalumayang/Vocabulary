@@ -19,9 +19,9 @@ struct ReviewView: View {
     @State private var index = 0
     @State private var input = ""
     @State var words = [
-        Word(counts:1,word: "Try", mean: "試圖;考驗",phonetic:""),
-        Word(counts:1,word: "Toeic", mean: "多益",phonetic:""),
-        Word(counts:1,word: "Play", mean: "玩",phonetic:"")
+        Word(counts:1,word: "apple", mean: "(n)蘋果",phonetic:"",example:"",define:"",chineseDef:""),
+        Word(counts:1,word: "banana", mean: "(n)香蕉",phonetic:"",example:"",define:"",chineseDef:""),
+        Word(counts:1,word: "cat", mean: "(n)貓咪",phonetic:"",example:"",define:"",chineseDef:"")
     ]
     let finishView = FinishView()
     var body: some View {
@@ -91,8 +91,3 @@ struct ReviewView: View {
     }
 }
 
-struct ReviewView_Previews: PreviewProvider {
-    static var previews: some View {
-        ReviewView()
-    }
-}

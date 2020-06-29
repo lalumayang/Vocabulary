@@ -19,7 +19,7 @@ struct CalendarPage: View {
                     .foregroundColor(.white)
                     .padding(EdgeInsets(top: 5, leading: 15, bottom: 5, trailing: 15))
                 CalendarView(date: CalendarPage.$date).offset(x: 28, y: 50)
-                Text("連續簽到 0 天")
+                Text("連續簽到 1 天")
                 .offset(x: 0, y: -180)
                 .foregroundColor(Color(red:165/255,green:153/255,blue:136/255))
 

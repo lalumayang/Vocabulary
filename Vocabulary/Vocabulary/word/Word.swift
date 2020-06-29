@@ -12,6 +12,9 @@ struct Word {
     let counts: Int
     let word: String
     let mean: String
-    var phonetic:String
+    let phonetic:String
+    let example: String
+    let define: String
+    let chineseDef: String
 }
 

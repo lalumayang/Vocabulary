@@ -7,21 +7,11 @@
 //
 
 import SwiftUI
-import AVFoundation
 
-struct WordViewThird: View {
-    let speaker = AVSpeechSynthesizer()
-    var utterance: AVSpeechUtterance {
-        AVSpeechUtterance(string: word.word)
-    }
+struct WordViewForth: View {
     var word: Word
     init(word: Word) {
         self.word = word
-        if self.speaker.isPaused {
-            self.speaker.continueSpeaking()
-        } else {
-            self.speaker.speak(self.utterance)
-        }
     }
     
     var body: some View {
@@ -30,16 +20,7 @@ struct WordViewThird: View {
             VStack{
                 Spacer()
                 HStack{
-                    Text(word.phonetic).font(.system(size: 30))
-                    Button(action: {
-                        if self.speaker.isPaused {
-                            self.speaker.continueSpeaking()
-                        } else {
-                            self.speaker.speak(self.utterance)
-                        }
-                    }) {
-                        Image(systemName: "speaker.2.fill")
-                    }
+                    Text(word.word).font(.system(size: 50))
                 }
                 .padding(.bottom, 30.0)
                 //                .foregroundColor(Color.white)
@@ -98,11 +79,5 @@ struct WordViewThird: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-    }
-}
-
-struct WordViewThird_Previews: PreviewProvider {
-    static var previews: some View {
-        WordViewThird(word: Word(counts:3,word: "apple",mean: "蘋果",phonetic:"",example:"",define:"",chineseDef:""))
     }
 }
